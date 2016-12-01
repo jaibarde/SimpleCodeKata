@@ -40,7 +40,7 @@ namespace ConsoleApplication1
         /// <returns></returns>
         public string this[int index] => _leastRecentlyUsedOrderedObjects.ElementAt(index - 1);
 
-        public string Output()
+        public override string ToString()
         {
             return _leastRecentlyUsedOrderedObjects.ToCommaSeparatedList();
         }

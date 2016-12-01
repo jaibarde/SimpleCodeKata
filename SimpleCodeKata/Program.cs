@@ -14,7 +14,7 @@ namespace ConsoleApplication1
             lruObj1.Add("c");
             lruObj1.Add("a");
             lruObj1.Add("c");
-            Console.WriteLine("Implementation #1 : " + lruObj1.Output() + " Count : " + lruObj1.Count);
+            Console.WriteLine("Implementation #1 : " + lruObj1 + " Count : " + lruObj1.Count);
             Console.WriteLine("Element @ #2 : " + lruObj1[2]);
         }
     }
