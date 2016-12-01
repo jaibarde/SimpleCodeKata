@@ -4,61 +4,61 @@ using System.Collections.Generic;
 namespace ConsoleApplication1
 {
     /// <summary>
-    /// A list that is sorted so that the item added least recently is at the beginning of the list and item added last is at the bottom. 
-    /// If an item is added more than once, it appears in the list only once, in the position determined by the time it was added last.
+    /// A _leastRecentlyUsedOrderedObjects that is sorted so that the item added least recently is at the beginning of the _leastRecentlyUsedOrderedObjects and item added last is at the bottom. 
+    /// If an item is added more than once, it appears in the _leastRecentlyUsedOrderedObjects only once, in the position determined by the time it was added last.
     /// </summary>
 
     public class LeastRecentlyUsedList
     {
-        private List<string> list;
+        private readonly List<string> _leastRecentlyUsedOrderedObjects;
 
         public LeastRecentlyUsedList()
         {
-            list = new List<string>();
+            _leastRecentlyUsedOrderedObjects = new List<string>();
         }
 
         /// <summary>
-        /// Adds an item to the end of the list, or, if the item has already been added, moves it to the end.
+        /// Adds an item to the end of the _leastRecentlyUsedOrderedObjects, or, if the item has already been added, moves it to the end.
         /// </summary>
         /// <param name="item">The item to add.</param>
         public void Add(string item)
         {
-            if (list.Contains(item))
+            if (_leastRecentlyUsedOrderedObjects.Contains(item))
             {
-                var index = list.IndexOf(item);
-                var existingItem = list[index];
-                list.RemoveAt(index);
-                list.Insert(0, existingItem);
+                var index = _leastRecentlyUsedOrderedObjects.IndexOf(item);
+                var existingItem = _leastRecentlyUsedOrderedObjects[index];
+                _leastRecentlyUsedOrderedObjects.RemoveAt(index);
+                _leastRecentlyUsedOrderedObjects.Insert(0, existingItem);
             }
             else
             {
-                list.Insert(0, item);
+                _leastRecentlyUsedOrderedObjects.Insert(0, item);
             }
         }
 
         /// <summary>
-        /// Returns the number of items in the list.
+        /// Returns the number of items in the _leastRecentlyUsedOrderedObjects.
         /// </summary>
         public int Count
         {
             get
             {
-                var size = list.Count;
+                var size = _leastRecentlyUsedOrderedObjects.Count;
                 return size;
             }
         }
 
         /// <summary>
-        /// Returns the item in the list at the specified position. LeastRecentlyUsedList[Count - 1] returns the item that was added most recently.
+        /// Returns the item in the _leastRecentlyUsedOrderedObjects at the specified position. LeastRecentlyUsedList[Count - 1] returns the item that was added most recently.
         /// </summary>
-        /// <param name="index">The position of the item to be retrieved from the list.</param>
+        /// <param name="index">The position of the item to be retrieved from the _leastRecentlyUsedOrderedObjects.</param>
         /// <returns></returns>
         public string this[int index]
         {
             get
             {
                 var position = 0;
-                foreach (var item in list)
+                foreach (var item in _leastRecentlyUsedOrderedObjects)
                 {
                     if (position == index)
                         return item;
@@ -70,7 +70,7 @@ namespace ConsoleApplication1
 
         public string Output()
         {
-            return list.ToCommaSeparatedList();
+            return _leastRecentlyUsedOrderedObjects.ToCommaSeparatedList();
         }
     }
 }
