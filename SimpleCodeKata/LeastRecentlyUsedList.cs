@@ -30,14 +30,7 @@ namespace ConsoleApplication1
         /// <summary>
         /// Returns the number of items in the _leastRecentlyUsedOrderedObjects.
         /// </summary>
-        public int Count
-        {
-            get
-            {
-                var size = _leastRecentlyUsedOrderedObjects.Count;
-                return size;
-            }
-        }
+        public int Count => _leastRecentlyUsedOrderedObjects.Count;
 
         /// <summary>
         /// Returns the recentlyUsedItem in the _leastRecentlyUsedOrderedObjects at the specified position. LeastRecentlyUsedList[Count - 1] returns the recentlyUsedItem that was added most recently.
