@@ -23,17 +23,8 @@ namespace ConsoleApplication1
         /// <param name="recentlyUsedItem">The recentlyUsedItem to add.</param>
         public void Add(string recentlyUsedItem)
         {
-            if (_leastRecentlyUsedOrderedObjects.Contains(recentlyUsedItem))
-            {
-                var index = _leastRecentlyUsedOrderedObjects.IndexOf(recentlyUsedItem);
-                var existingItem = _leastRecentlyUsedOrderedObjects[index];
-                _leastRecentlyUsedOrderedObjects.RemoveAt(index);
-                _leastRecentlyUsedOrderedObjects.Insert(0, existingItem);
-            }
-            else
-            {
-                _leastRecentlyUsedOrderedObjects.Insert(0, recentlyUsedItem);
-            }
+            _leastRecentlyUsedOrderedObjects.Remove(recentlyUsedItem);
+            _leastRecentlyUsedOrderedObjects.Insert(0, recentlyUsedItem);
         }
 
         /// <summary>
