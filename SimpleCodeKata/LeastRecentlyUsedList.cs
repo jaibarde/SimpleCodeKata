@@ -37,20 +37,7 @@ namespace ConsoleApplication1
         /// </summary>
         /// <param name="index">The position of the recentlyUsedItem to be retrieved from the _leastRecentlyUsedOrderedObjects.</param>
         /// <returns></returns>
-        public string this[int index]
-        {
-            get
-            {
-                var position = 0;
-                foreach (var item in _leastRecentlyUsedOrderedObjects)
-                {
-                    if (position == index)
-                        return item;
-                    ++position;
-                }
-                throw new ArgumentOutOfRangeException();
-            }
-        }
+        public string this[int index] => _leastRecentlyUsedOrderedObjects.ElementAt(index - 1);
 
         public string Output()
         {
